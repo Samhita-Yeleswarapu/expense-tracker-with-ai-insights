@@ -21,13 +21,12 @@ function AIInsights() {
 
   const getInsights = async () => {
     try {
-      const response =
-        await axios.get(
-          "http://localhost:1971/ai/ai-insights",
-          {
-            withCredentials: true,
-          }
-        );
+      const response = await axios.get(
+  `${import.meta.env.VITE_API_URL}/ai/ai-insights`,
+  {
+    withCredentials: true,
+  }
+);
 
       setInsights(
         response.data
