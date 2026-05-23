@@ -19,6 +19,7 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
+app.options("*", cors());
 //add cookie parser middeleware
 app.use(cookieParser())
 //body parser middleware
