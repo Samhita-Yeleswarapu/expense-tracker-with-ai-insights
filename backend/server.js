@@ -18,10 +18,10 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 app.options("*", cors());
-//add cookie parser middeleware
-app.use(cookieParser())
 //body parser middleware
 app.use(exp.json());
+//add cookie parser middeleware
+app.use(cookieParser())
 //path level middlewares
 app.use("/auth", commonApp);
 app.use("/transaction",IncomeAndExpenseApp);
