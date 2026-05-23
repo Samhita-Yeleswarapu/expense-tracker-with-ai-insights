@@ -11,10 +11,14 @@ config();
 //create express app
 const app = exp();
 //enable cors
+import cors from "cors";
+
 app.use(cors({
-  origin: ["http://localhost:5173","https://expense-tracker-with-ai-insights-qne0.onrender.com"],
-  credentials: true
-}))
+  origin: "https://expense-tracker-with-ai-insights-three.vercel.app",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 //add cookie parser middeleware
 app.use(cookieParser())
 //body parser middleware
