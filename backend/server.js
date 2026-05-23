@@ -10,8 +10,6 @@ import cors from 'cors';
 config();
 //create express app
 const app = exp();
-//enable cors
-import cors from "cors";
 
 app.use(cors({
   origin: "https://expense-tracker-with-ai-insights-three.vercel.app",
