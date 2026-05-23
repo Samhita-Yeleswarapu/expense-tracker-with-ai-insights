@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API =
-"http://localhost:1971/transaction";
+const API = `${import.meta.env.VITE_API_URL}/transaction`;
 
 
 // ADD
