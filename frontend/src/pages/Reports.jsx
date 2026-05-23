@@ -28,13 +28,12 @@ export default function Reports() {
 
     try {
 
-      const res =
-        await axios.get(
-          "http://localhost:1971/transaction/all-transactions",
-          {
-            withCredentials: true,
-          }
-        );
+     const res = await axios.get(
+  `${import.meta.env.VITE_API_URL}/transaction/all-transactions`,
+  {
+    withCredentials: true,
+  }
+);
 
       let all = [];
 
