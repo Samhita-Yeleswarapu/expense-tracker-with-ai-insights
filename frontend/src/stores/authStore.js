@@ -12,13 +12,11 @@ export const useAuth = create((set) => ({
   login: async (userCred) => {
     try {
       set((state) => ({ ...state, loading: true }));
-
       let res = await axios.post(
         `${BASE_URL}/auth/login`,
         userCred,
         { withCredentials: true }
       );
-
       if (res.status === 200) {
         set({
           currentUser: res.data?.payload,
@@ -33,7 +31,7 @@ export const useAuth = create((set) => ({
         loading: false,
         isAuthenticated: false,
         currentUser: null,
-        error: err.response?.data?.error || "Login failed",
+        error: err.response?.data?.message || "Login failed",
       });
     }
   },
@@ -41,12 +39,10 @@ export const useAuth = create((set) => ({
   logout: async () => {
     try {
       set((state) => ({ ...state, loading: true }));
-
       let res = await axios.get(
-        `${BASE_URL}/user/logout`,
+        `${BASE_URL}/auth/logout`, // ✅ fixed from /user/logout
         { withCredentials: true }
       );
-
       if (res.status === 200) {
         set({
           currentUser: null,
@@ -60,7 +56,7 @@ export const useAuth = create((set) => ({
         loading: false,
         isAuthenticated: false,
         currentUser: null,
-        error: err.response?.data?.error || "Logout failed",
+        error: err.response?.data?.message || "Logout failed",
       });
     }
   },
